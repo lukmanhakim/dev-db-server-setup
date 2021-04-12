@@ -44,30 +44,30 @@ services:
     volumes:
       - ~/Volumes/elastic/1:/db/data
 
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   ports:
-  #     - "1000:80"
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: root@localhost.com
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #   depends_on: 
-  #     - postgres
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "1000:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on: 
+      - postgres
 
-  # mongo-client:
-  #   image: mongoclient/mongoclient
-  #   ports:
-  #     - "1002:3000"
-  #   volumes:
-  #     - "~/Volumes/mongoclient:/data/db mongoclient/mongoclient"
-  #   depends_on:
-  #     - mongo
+  mongo-client:
+    image: mongoclient/mongoclient
+    ports:
+      - "1002:3000"
+    volumes:
+      - "~/Volumes/mongoclient:/data/db mongoclient/mongoclient"
+    depends_on:
+      - mongo
 
-  # phpmyadmin:
-  #   image: phpmyadmin
-  #   ports:
-  #     - "1003:80"
-  #   environment:
-  #     PMA_ARBITRARY: 1
-  #   depends_on:
-  #     - mariadb
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "1003:80"
+    environment:
+      PMA_ARBITRARY: 1
+    depends_on:
+      - mariadb
